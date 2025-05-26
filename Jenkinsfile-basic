@@ -27,10 +27,10 @@ pipeline {
                 }
             }
         }
-        stage('deploy') {
+        stage('docker-run') {
             steps {
                 script {
-                    echo "Deploying the application..."
+                    gv.dockerRun()
                 }
             }
 

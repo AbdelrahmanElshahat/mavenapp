@@ -11,5 +11,9 @@ def buildImage(){
         sh "docker push elshahat20/my-app:1.0"
     }
 }
+def dockerRun(){
+    echo 'Running the docker container...'
+    sh "docker run -d -p 8080:8080 elshahat20/my-app:1.0"
+}
 
 return this
