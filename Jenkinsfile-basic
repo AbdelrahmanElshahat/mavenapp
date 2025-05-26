@@ -1,0 +1,39 @@
+def gv
+pipeline {
+    agent any
+
+        tools {
+            maven 'maven-3.9.9'
+        }
+        stages {
+            stage("intit"){
+                steps {
+                    script {
+                        gv = load "scripts.groovy"
+                    }
+                }
+            }
+        stage('build') {
+            steps {
+                script {
+                   gv.buildApp()
+                }
+            }
+        }
+        stage('build-docker') {
+            steps {
+                script {
+                    gv.buildImage()
+                }
+            }
+        }
+        stage('deploy') {
+            steps {
+                script {
+                    echo "Deploying the application..."
+                }
+            }
+
+        }
+    }
+}
