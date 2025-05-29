@@ -39,7 +39,7 @@ pipeline {
         stage("push image") {
             steps {
                 script {
-                    pushImage 'elshahat20/my-app:2.0'
+                    dockerPush 'elshahat20/my-app:2.0'
                 }
             }
         }
