@@ -29,6 +29,13 @@ pipeline {
                 }
             }
         }
+        stage("docker login") {
+            steps {
+                script {
+                    dockerLogin()
+                }
+            }
+        }
         stage("push image") {
             steps {
                 script {
